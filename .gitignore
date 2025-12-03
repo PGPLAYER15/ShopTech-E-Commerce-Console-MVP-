@@ -1,0 +1,80 @@
+# ---------- Java / Build artifacts ----------
+*.class
+*.jar
+*.war
+*.ear
+/target/
+/build/
+/dist/
+
+# Maven specific
+/pom.xml.tag
+/pom.xml.releaseBackup
+/pom.xml.versionsBackup
+/mvnw
+/mvnw.cmd
+/.mvn/wrapper/maven-wrapper.jar
+
+# Gradle
+.gradle/
+
+# ---------- IDEs ----------
+# IntelliJ
+/.idea/
+*.iml
+*.iws
+/out/
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+# VS Code
+.vscode/
+
+# ---------- OS files ----------
+.DS_Store
+Thumbs.db
+
+# ---------- Logs / temp ----------
+*.log
+logs/
+tmp/
+temp/
+
+# ---------- Test / reports / coverage ----------
+/test-output/
+/target/surefire-reports/
+/coverage/
+*.exec
+
+# ---------- Node ----------
+node_modules/
+
+# ---------- Secrets / env ----------
+.env
+*.env
+credentials.properties
+secrets.properties
+*.jks
+
+# ---------- Databases / local storage ----------
+*.db
+*.h2.db
+*.sqlite
+
+# ---------- Misc ----------
+.idea/
+*.iml
+*.ipr
+
+# Ignore local IDE run configurations, user-specific files
+*.user
+*.suo
+
+# Keep local properties (like keystore passwords) out of repo
+/local.properties
+
+# End of .gitignore
+
