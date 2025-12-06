@@ -1,80 +1,95 @@
-# ---------- Java / Build artifacts ----------
+# Compiled class files
 *.class
+
+# Log files
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files
 *.jar
 *.war
+*.nar
 *.ear
-/target/
-/build/
-/dist/
+*.zip
+*.tar.gz
+*.rar
 
-# Maven specific
-/pom.xml.tag
-/pom.xml.releaseBackup
-/pom.xml.versionsBackup
-/mvnw
-/mvnw.cmd
-/.mvn/wrapper/maven-wrapper.jar
+# Virtual machine crash logs
+hs_err_pid*
+replay_pid*
 
-# Gradle
-.gradle/
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
 
-# ---------- IDEs ----------
-# IntelliJ
-/.idea/
-*.iml
+# IntelliJ IDEA
+.idea/
 *.iws
-/out/
+*.iml
+*.ipr
+out/
 
 # Eclipse
-.project
 .classpath
+.project
 .settings/
+bin/
+
+# NetBeans
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
 
 # VS Code
 .vscode/
 
-# ---------- OS files ----------
+# macOS
 .DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Windows
 Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
 
-# ---------- Logs / temp ----------
-*.log
-logs/
-tmp/
-temp/
-
-# ---------- Test / reports / coverage ----------
-/test-output/
-/target/surefire-reports/
-/coverage/
-*.exec
-
-# ---------- Node ----------
-node_modules/
-
-# ---------- Secrets / env ----------
-.env
-*.env
-credentials.properties
-secrets.properties
-*.jks
-
-# ---------- Databases / local storage ----------
+# Application specific
 *.db
-*.h2.db
 *.sqlite
-
-# ---------- Misc ----------
-.idea/
-*.iml
-*.ipr
-
-# Ignore local IDE run configurations, user-specific files
-*.user
-*.suo
-
-# Keep local properties (like keystore passwords) out of repo
-/local.properties
-
-# End of .gitignore
 
