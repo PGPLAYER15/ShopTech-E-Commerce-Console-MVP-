@@ -1,17 +1,18 @@
 package org.example.model.order;
 
 import org.example.model.product.Product;
+import org.example.patterns.strategy.PaymentStrategy;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Order {
     public enum Status {
-        PENDING, SHIPPED, DELIVERED, CANCELED
+        PENDING,PAID, SHIPPED, DELIVERED, CANCELED
     }
 
     // valores obligatorios
-
+    List<OrderObserver> observers = new ArrayList<>();
     String orderId;
     User user;
     List<Product> items;
@@ -20,7 +21,7 @@ public class Order {
 
     // valores opcionales
 
-    String paymentMethod;
+    PaymentStrategy paymentMethod;
     String giftNote;
 
     public String getOrderId(){ return orderId;}
@@ -28,7 +29,7 @@ public class Order {
     public List<Product> getItems(){ return items; }
     public double getTotalAmount(){ return totalAmount;}
     public Status getOrderStatus(){ return orderStatus; }
-    public String getPaymentMethod(){ return paymentMethod; }
+    public PaymentStrategy getPaymentMethod(){ return paymentMethod; }
     public String getGiftNote(){ return giftNote; }
 
     private Order(OrderBuilder builder) {
@@ -39,6 +40,69 @@ public class Order {
         this.paymentMethod = builder.paymentMethod;
         this.orderStatus = builder.orderStatus;
         this.giftNote = builder.giftNote;
+
+        subscribe(builder.user);
+    }
+
+    // methods
+
+    public void processPayment() {
+
+        if(paymentMethod == null) throw new IllegalStateException("Payment method not set");
+
+        if(orderStatus != Status.PENDING){
+            throw new IllegalStateException("Order status is not PENDING");
+        }
+
+        if(totalAmount <= 0) {
+            throw new IllegalArgumentException("Amount must be greater than zero");
+        }
+
+        if (paymentMethod.pay(this.totalAmount)) {
+            setStatus(Status.PAID);
+        } else {
+            orderStatus = Status.PENDING;
+            throw new RuntimeException("Payment failed for order: " + orderId);
+        }
+    }
+
+    public void setStatus(Status newStatus) {
+        if(newStatus == null){
+            throw new IllegalArgumentException("Status cannot be null");
+        }
+        Status oldStatus = orderStatus;
+        this.orderStatus = newStatus;
+        notifyObservers("Order status changed from " + oldStatus + " to " + newStatus);
+    }
+
+    public void subscribe(OrderObserver user) {
+        if(user == null){
+            throw new IllegalArgumentException("User cannot be null");
+        }
+        observers.add(user);
+    }
+
+    public void unsubscribe(OrderObserver user) {
+        if(user == null){
+            throw new IllegalArgumentException("User cannot be null");
+        }
+
+        if(!observers.contains(user)){
+            throw new IllegalStateException("User is not subscribed");
+        }
+
+        observers.remove(user);
+    }
+
+    public void notifyObservers(String event) {
+
+        if(event == null || event.isEmpty()){
+            throw new IllegalArgumentException("Event cannot be null or empty");
+        }
+
+        for (OrderObserver observer : observers) {
+            observer.update(this, event);
+        }
     }
 
     public static class OrderBuilder {
@@ -47,7 +111,7 @@ public class Order {
         List<Product> items;
         double totalAmount;
         Order.Status orderStatus = Status.PENDING;
-        String paymentMethod;
+        PaymentStrategy paymentMethod;
         String giftNote;
 
         public OrderBuilder setOrderId(String orderId) {
@@ -85,7 +149,7 @@ public class Order {
             return this;
         }
 
-        public OrderBuilder setPaymentMethod(String paymentMethod) {
+        public OrderBuilder setPaymentMethod(PaymentStrategy paymentMethod) {
             this.paymentMethod = paymentMethod;
             return this;
         }
