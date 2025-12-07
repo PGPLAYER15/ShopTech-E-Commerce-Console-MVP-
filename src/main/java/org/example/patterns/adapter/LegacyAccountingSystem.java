@@ -10,13 +10,13 @@ public class LegacyAccountingSystem {
 
     public void registrarVenta(String idOrden, String nombreCliente, double monto) {
 
-        if(idOrden == null || idOrden.isEmpty()) {
+        if (idOrden == null || idOrden.isEmpty()) {
             throw new IllegalArgumentException("ID de orden no puede ser nulo o vacío");
         }
-        if(nombreCliente == null || nombreCliente.isEmpty()) {
+        if (nombreCliente == null || nombreCliente.isEmpty()) {
             throw new IllegalArgumentException("Nombre del cliente no puede ser nulo o vacío");
         }
-        if(monto <= 0) {
+        if (monto <= 0) {
             throw new IllegalArgumentException("El monto debe ser mayor a cero");
         }
 
@@ -24,7 +24,7 @@ public class LegacyAccountingSystem {
         recordedSales.add(venta);
 
         System.out.println("═══════════════════════════════════════");
-        System.out.println("🏦 SISTEMA LEGACY - Contabilidad");
+        System.out.println(" SISTEMA LEGACY - Contabilidad");
         System.out.println("Venta registrada exitosamente");
         System.out.println("ID Orden: " + idOrden);
         System.out.println("Cliente: " + nombreCliente);
@@ -40,15 +40,15 @@ public class LegacyAccountingSystem {
 
         VentaLegacy(String idOrden, String cliente, double monto) {
 
-            if(idOrden == null || idOrden.isEmpty()){
+            if (idOrden == null || idOrden.isEmpty()) {
                 throw new IllegalArgumentException("idOrden cannot be null or empty");
             }
 
-            if(cliente == null || cliente.isEmpty()){
+            if (cliente == null || cliente.isEmpty()) {
                 throw new IllegalArgumentException("cliente cannot be null or empty");
             }
 
-            if(monto <= 0){
+            if (monto <= 0) {
                 throw new IllegalArgumentException("monto must be greater than zero");
             }
 
@@ -57,9 +57,16 @@ public class LegacyAccountingSystem {
             this.monto = monto;
         }
 
-        public String getIdOrden() { return idOrden; }
-        public String getNombreCliente() { return cliente; }
-        public double getMonto() { return monto; }
+        public String getIdOrden() {
+            return idOrden;
+        }
+
+        public String getNombreCliente() {
+            return cliente;
+        }
+
+        public double getMonto() {
+            return monto;
+        }
     }
 }
-
