@@ -77,4 +77,3 @@ src/
                     └── NotificationService.java
 ```
 
-Si quieres que modifique lenguaje o profundice en la documentación de alguno de los patrones, o que añada ejemplos de uso en el README, lo hago enseguida.

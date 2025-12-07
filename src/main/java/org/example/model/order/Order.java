@@ -7,11 +7,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Order {
+
     public enum Status {
         PENDING,PAID, SHIPPED, DELIVERED, CANCELED
     }
 
     // valores obligatorios
+
     List<OrderObserver> observers = new ArrayList<>();
     String orderId;
     User user;

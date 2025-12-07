@@ -36,4 +36,8 @@ public abstract class Product {
             throw new IllegalStateException("Stock cannot be negative");
         }
     }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
 }
