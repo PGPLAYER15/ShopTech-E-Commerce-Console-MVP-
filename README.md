@@ -171,16 +171,8 @@ Ver `TEST_PLAN.md` para casos de prueba detallados.
 ### DIP (Dependency Inversion Principle)
 - Dependencia de abstracciones (`IProduct`, `PaymentStrategy`)
 - No dependencia de clases concretas
-
-## 🎓 Lecciones Aprendidas
-
-[Documenta aquí tus aprendizajes durante el desarrollo]
-
+- 
 ## 👥 Autor
 Marco Vinicio Palazuelos Leon
 
 7 de Diciembre del 2025
-
-## 📄 Licencia
-
-Proyecto académico - [Tu universidad/institución]
