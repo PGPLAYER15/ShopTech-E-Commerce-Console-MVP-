@@ -1,10 +1,13 @@
 package org.example.patterns.decorator;
 
+
+import org.example.model.product.Product;
+
 public class GiftWrapDecorator extends ProductDecorator {
 
     private final double GIFT_WRAP_COST = 10.00;
 
-    public GiftWrapDecorator(org.example.model.product.Product product) {
+    public GiftWrapDecorator( Product product) {
         super(product);
     }
 

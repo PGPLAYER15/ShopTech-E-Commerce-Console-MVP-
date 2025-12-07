@@ -2,14 +2,14 @@ package org.example.patterns.decorator;
 
 import org.example.model.product.Product;
 
-public abstract class ProductDecorator {
+public abstract class ProductDecorator extends Product {
 
     Product wrappedProduct;
 
     public ProductDecorator(Product product) {
-        if(product == null) {
-            throw new IllegalArgumentException("Product cannot be null");
-        }
+
+        super(product.getId(), product.getName(), product.getPrice(),
+                product.getStock(), product.getCategory());
 
         this.wrappedProduct = product;
     }

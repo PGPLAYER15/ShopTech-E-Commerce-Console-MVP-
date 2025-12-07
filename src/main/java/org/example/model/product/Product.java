@@ -22,7 +22,7 @@ public abstract class Product {
     public String getName() { return name; }
     public double getPrice() { return price; }
     public abstract String getDetails();
-
+    public String getCategory() { return category; }
     // methods
 
     public void incrementStock() {

@@ -1,5 +1,4 @@
 package org.example.model.order;
-
 import org.example.model.product.Product;
 
 import java.util.ArrayList;
@@ -25,6 +24,22 @@ public class Cart {
 
     public int getTotalItems() {
         return products.size();
+    }
+
+    public List<Product> getItems() {
+        return new ArrayList<>(products);
+    }
+
+    public double getTotal() {
+        return products.stream().mapToDouble(Product::getPrice).sum();
+    }
+
+    public void clear() {
+        products.clear();
+    }
+
+    public boolean isEmpty() {
+        return products.isEmpty();
     }
 
     public void removeProduct(String id) {

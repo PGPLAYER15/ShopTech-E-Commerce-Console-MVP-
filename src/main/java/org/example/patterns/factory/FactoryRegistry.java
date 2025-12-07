@@ -19,12 +19,10 @@ public class FactoryRegistry {
     }
 
     public void registerFactory(String type, ProductFactory factory) {
-        if (type == null || type.trim().isEmpty()) {
-            throw new IllegalArgumentException("Product type cannot be null or empty");
+        if (type == null || factory == null) {
+            throw new IllegalArgumentException("Category and factory cannot be null");
         }
-        if (factory == null) {
-            throw new IllegalArgumentException("Factory cannot be null");
-        }
+
         factories.put(type.toUpperCase(), factory);
     }
 
